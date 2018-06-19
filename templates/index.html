@@ -1,0 +1,34 @@
+<html>
+<head>
+</head>
+<body>
+    <h1>My Friends and Family</h1>
+    <div style="padding: 1em; background: #EEE; border:1px dashed #999; margin: .5em 0">
+            <a href="/fnf/create">Create New</a>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Relation</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if members %}
+            {% for member in members %}
+            <tr>
+                <td>{{member.name}}</td>
+                <td>{{member.relation}}</td>
+                <td>{{member.phone}}</td>
+                <td>{{member.email}}</td>
+                <td><a href="/fnf/edit?id={{member._id}}">Edit</a> | <a href="/fnf/delete?id={{member._id}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>
